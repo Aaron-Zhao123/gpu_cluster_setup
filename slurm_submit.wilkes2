@@ -89,8 +89,16 @@ cd $workdir
 echo -e "Changed directory to `pwd`.\n"
 echo -e "Sourcing venv...\n"
 source tensorflow-env-py3/bin/activate
+pip install pyyaml
+pip install docopt
+pip install termcolor
+pip install networkx
 python --version
 cd mayo-dev
 ./my -h
 
+# pip install pyyaml
+# pip install docopt
+# pip install termcolor
+# pip install networkx
 eval $CMD
