@@ -63,7 +63,7 @@ application=""
 options=""
 
 #! Work directory (i.e. where the job will run):
-workdir="$SLURM_SUBMIT_DIR"  # The value of SLURM_SUBMIT_DIR sets workdir to the directory
+workdir="/home/yaz21/mayo-dev"  # The value of SLURM_SUBMIT_DIR sets workdir to the directory
                              # in which sbatch is run.
 
 #! Are you using OpenMP (NB this is unrelated to OpenMPI)? If so increase this
@@ -88,17 +88,16 @@ CMD="$application $options"
 cd $workdir
 echo -e "Changed directory to `pwd`.\n"
 echo -e "Sourcing venv...\n"
-source tensorflow-env-py3/bin/activate
+source ../tensorflow-env-py3/bin/activate
 pip install pyyaml
 pip install docopt
 pip install termcolor
 pip install networkx
 python --version
-cd mayo-dev
-./my -h
+echo -e "directory is at`pwd`.\n"
+./my datasets/mnist.yaml trainers/lenet5.yaml models/lenet5.yaml system.checkpoint.load=null train
 
 # pip install pyyaml
 # pip install docopt
 # pip install termcolor
 # pip install networkx
-eval $CMD
