@@ -52,9 +52,14 @@ An easier way to get access to the dataset is to copy(```scp```) them directly f
 
 If you are using ```tfrecord``` files, you can run this [code](https://github.com/UCam-CompArch-NN/imagenet-tensorflow/tree/master/TFRecord_check) to check whether these data files are borken after ```scp```.
 
+Notice, it is suggested to put the datasets in ```~/rds/hpc-work```
+
 ### Submit the job
 To submit a job, simply run:
 ```Shell
 sbatch gpu_cluster_setup/slurm_submit.wilkes2
 ```
 The submitting script contains a number of setups and are relatively well-documented.
+Thing you want to pay attentions are probably [here](https://github.com/Aaron-Zhao123/gpu_cluster_setup/blob/0cd1e992319838896dcd75b42e0618fd37b90778/slurm_submit.wilkes2#L88) and [here](https://github.com/Aaron-Zhao123/gpu_cluster_setup/blob/0cd1e992319838896dcd75b42e0618fd37b90778/slurm_submit.wilkes2#L13)
+
+The first is a call to the scripts you want to run, the second link points to the setups (eg: num_gpus, num_cpus, time and etc).
